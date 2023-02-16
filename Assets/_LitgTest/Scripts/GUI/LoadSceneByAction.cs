@@ -8,7 +8,8 @@ namespace _LitgTest.Scripts.GUI
     public class LoadSceneByAction : GenericActionButton
     {
         [SerializeField] private int sceneIndex;
-        private void OnEnable()
+
+        protected override void OnEnable()
         {
             PointerDown += () => SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
         }

@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace _LitgTest.Scripts.Helpers
 {
-    public abstract class  GenericActionButton : MonoBehaviour,  IPointerUpHandler, IPointerDownHandler,
+    public abstract class  GenericActionButton : Button,  IPointerUpHandler, IPointerDownHandler,
         IPointerExitHandler
     {
         public event Action PointerDown;
@@ -12,17 +13,17 @@ namespace _LitgTest.Scripts.Helpers
 
       
 
-        public void OnPointerUp(PointerEventData eventData)
+        public override void OnPointerUp(PointerEventData eventData)
         {
             PointerUp?.Invoke();
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public new void OnPointerDown(PointerEventData eventData)
         {
             PointerDown?.Invoke();
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public override void OnPointerExit(PointerEventData eventData)
         {
             PointerUp?.Invoke();
         }
