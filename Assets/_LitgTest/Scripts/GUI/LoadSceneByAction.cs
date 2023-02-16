@@ -1,4 +1,3 @@
-using System;
 using _LitgTest.Scripts.GameLogic;
 using _LitgTest.Scripts.Helpers;
 using UnityEngine;
@@ -11,9 +10,14 @@ namespace _LitgTest.Scripts.GUI
 
         protected override void OnEnable()
         {
-            PointerDown += () => SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
+            PointerDown += LoadByClick;
         }
-
+        
+        protected override void OnDisable()
+        {
+            PointerDown -= LoadByClick;
+        }
+        
         private void Update()
         {
             if (Input.anyKey)
@@ -21,5 +25,12 @@ namespace _LitgTest.Scripts.GUI
                 SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
             }
         }
+
+        private void LoadByClick()
+        {
+            SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
+        }
+
+       
     }
 }

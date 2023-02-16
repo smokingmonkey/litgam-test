@@ -1,29 +1,37 @@
 using System;
 using _LitgTest.Scripts.Character.Player.Controllers;
-using _LitgTest.Scripts.Helpers;
 using _LitgTest.Scripts.Models.AnimationModels;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _LitgTest.Scripts.GUI
 {
-    public class AnimationSelectorButton : Button
+    [RequireComponent(typeof(Button))]
+    public class AnimationSelectorButton : MonoBehaviour
     {
-        [Tooltip("Set the animation that this button should trigger")]
-        [SerializeField] private PlayerAnimations playerAnimation;
+        [Tooltip("Set the animation that this button should trigger")] [SerializeField]
+        private PlayerDances playerDance;
 
-        new void OnEnable()
+        Button button;
+
+        private void Awake()
         {
-            onClick.AddListener(SetAnimation);
+            button = GetComponent<Button>();
         }
 
-        new void OnDisable()
+        void OnEnable()
         {
-            onClick.RemoveListener(SetAnimation);
+            button.onClick.AddListener(SetAnimation);
         }
+
+        void OnDisable()
+        {
+            button.onClick.RemoveListener(SetAnimation);
+        }
+
         private void SetAnimation()
         {
-            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerAnimation);
+            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerDance);
         }
     }
 }

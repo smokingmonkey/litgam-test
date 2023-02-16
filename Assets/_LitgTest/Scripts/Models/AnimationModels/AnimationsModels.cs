@@ -1,9 +1,9 @@
 namespace _LitgTest.Scripts.Models.AnimationModels
 {
-    public enum PlayerAnimations
+    public enum PlayerDances
     {
-        IsIdle,
-        IsRunning,
-        IsShooting,
+        House,
+        Macarena,
+        Wave,
     }
 }

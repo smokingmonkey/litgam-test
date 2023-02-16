@@ -13,23 +13,23 @@ namespace _LitgTest.Scripts.Character.Player.Controllers
             playerAnimator = GetComponent<Animator>();
         }
 
-        public void PlayAnimation(PlayerAnimations playerAnimations)
+        public void PlayAnimation(PlayerDances playerDances)
         {
             if (!playerAnimator) return;
-            playerAnimator.SetBool(playerAnimations.ToString(), true);
+            playerAnimator.Play(playerDances.ToString());
         }
 
-        public void StopAnimation(PlayerAnimations playerAnimations)
+        public void StopAnimation(PlayerDances playerDances)
         {
             if (!playerAnimator) return;
-            playerAnimator.SetBool(playerAnimations.ToString(), false);
+            playerAnimator.SetBool(playerDances.ToString(), false);
         }
         
-        public void SetTrigger(PlayerAnimations playerAnimations)
+        public void SetTrigger(PlayerDances playerDances)
         {
             if (!playerAnimator) return;
             
-            playerAnimator.SetTrigger(playerAnimations.ToString());
+            playerAnimator.SetTrigger(playerDances.ToString());
         }
 
     }
