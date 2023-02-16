@@ -4,7 +4,7 @@
 // public class RestartScene : GenericActionButton
 // {
 //     private void OnEnable()
-//     {
+//     // {
 //         PointerDown += () => SceneManager.LoadScene(0);
 //     }
 // }
