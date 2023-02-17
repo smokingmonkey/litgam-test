@@ -6,7 +6,7 @@ namespace _LitgTest.Scripts.Character.Player.Controllers
     {
         private Animator playerAnimator;
 
-        void Start()
+        public void Start()
         {
             playerAnimator = GetComponent<Animator>();
         }
