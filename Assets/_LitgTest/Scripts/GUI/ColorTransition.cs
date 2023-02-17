@@ -7,6 +7,7 @@ namespace _LitgTest.Scripts.GUI
     [RequireComponent(typeof(Image))]
     public class ColorTransition : MonoBehaviour
     {
+        [SerializeField] Color startColor;
         [SerializeField] Color targetColor;
 
         [SerializeField] private float speed;
@@ -25,15 +26,11 @@ namespace _LitgTest.Scripts.GUI
         private IEnumerator ChangeEngineColour()
         {
             float tick = 0f;
-            
-            Debug.Log("ssss" + (image.material.color != targetColor));
-
 
             while (image.material.color != targetColor)
             {
-
                 tick += Time.deltaTime * speed;
-                image.material.color = Color.Lerp(image.material.color, targetColor, tick);
+                image.material.color = Color.Lerp(startColor, targetColor, Mathf.PingPong(Time.time, 1));
                 yield return null;
             }
         }

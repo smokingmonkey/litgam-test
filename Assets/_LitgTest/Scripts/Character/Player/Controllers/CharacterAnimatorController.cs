@@ -1,5 +1,3 @@
-using _LitgTest.Scripts.Models;
-using _LitgTest.Scripts.Models.AnimationModels;
 using UnityEngine;
 
 namespace _LitgTest.Scripts.Character.Player.Controllers
@@ -13,23 +11,24 @@ namespace _LitgTest.Scripts.Character.Player.Controllers
             playerAnimator = GetComponent<Animator>();
         }
 
-        public void PlayAnimation(PlayerDances playerDances)
+        public void PlayAnimation(string animationName)
         {
             if (!playerAnimator) return;
-            playerAnimator.Play(playerDances.ToString());
+
+            playerAnimator.Play(animationName);
         }
 
-        public void StopAnimation(PlayerDances playerDances)
+        public void StopAnimation(string animationName)
         {
             if (!playerAnimator) return;
-            playerAnimator.SetBool(playerDances.ToString(), false);
+            playerAnimator.SetBool(animationName, false);
         }
-        
-        public void SetTrigger(PlayerDances playerDances)
+
+        public void SetTrigger(string animationName)
         {
             if (!playerAnimator) return;
-            
-            playerAnimator.SetTrigger(playerDances.ToString());
+
+            playerAnimator.SetTrigger(animationName);
         }
 
     }

@@ -1,4 +1,3 @@
-using System;
 using _LitgTest.Scripts.Character.Player.Controllers;
 using _LitgTest.Scripts.Models.AnimationModels;
 using UnityEngine;
@@ -31,7 +30,8 @@ namespace _LitgTest.Scripts.GUI
 
         private void SetAnimation()
         {
-            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerDance);
+            PlayerControllerSingleton.Instance.PlayerDataObj.danceAnimation = playerDance;
+            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerDance.ToString());
         }
     }
 }
