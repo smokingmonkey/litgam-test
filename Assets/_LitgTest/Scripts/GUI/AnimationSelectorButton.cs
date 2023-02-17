@@ -1,3 +1,4 @@
+using System;
 using _LitgTest.Scripts.Character.Player.Controllers;
 using _LitgTest.Scripts.Models.AnimationModels;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace _LitgTest.Scripts.GUI
     [RequireComponent(typeof(Button))]
     public class AnimationSelectorButton : MonoBehaviour
     {
+        public static event Action<PlayerDances> AnimationSelected;
+        
         [Tooltip("Set the animation that this button should trigger")] [SerializeField]
         private PlayerDances playerDance;
 
@@ -30,8 +33,7 @@ namespace _LitgTest.Scripts.GUI
 
         private void SetAnimation()
         {
-            PlayerControllerSingleton.Instance.PlayerDataObj.danceAnimation = playerDance;
-            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerDance.ToString());
+            AnimationSelected?.Invoke(playerDance);
         }
     }
 }

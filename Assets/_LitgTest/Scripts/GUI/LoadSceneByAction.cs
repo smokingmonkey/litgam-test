@@ -22,13 +22,13 @@ namespace _LitgTest.Scripts.GUI
         {
             if (Input.anyKey)
             {
-                SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
+                SceneLoaderSingleton.Instance.LoadNext();
             }
         }
 
         private void LoadByClick()
         {
-            SceneLoaderSingleton.Instance.LoadScene(sceneIndex);
+            SceneLoaderSingleton.Instance.LoadNext();
         }
 
        

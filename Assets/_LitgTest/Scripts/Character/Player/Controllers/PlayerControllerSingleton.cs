@@ -1,5 +1,7 @@
 using _LitgTest.Scripts.GameLogic.DataServices;
 using _LitgTest.Scripts.GameLogic.Models.DataModels;
+using _LitgTest.Scripts.GUI;
+using _LitgTest.Scripts.Models.AnimationModels;
 using UnityEngine;
 
 namespace _LitgTest.Scripts.Character.Player.Controllers
@@ -22,6 +24,21 @@ namespace _LitgTest.Scripts.Character.Player.Controllers
 
             Instance = this;
         }
+        
+        private void OnEnable()
+        {
+            AnimationSelectorButton.AnimationSelected += SetCurrentAnimationData;
+        }
+        
+        private void OnDisable()
+        {
+            AnimationSelectorButton.AnimationSelected -= SetCurrentAnimationData;
+        }
+
+        void SetCurrentAnimationData(PlayerDances dance)
+        {
+            playerDataObj.danceAnimation = dance;
+        }
 
         private void Start()
         {
@@ -30,12 +47,13 @@ namespace _LitgTest.Scripts.Character.Player.Controllers
 
         void InitPlayer()
         {
+            playerDataObj = new PlayerData();
+            
             var savedPlayerData = PersistentDataService.GetElement<PlayerData>(DataModels.PlayerData);
+            
             if (savedPlayerData == null) return;
             
             playerDataObj = savedPlayerData;
-            
-            PlayerAnimatorControllerSingleton.Instance.PlayAnimation(playerDataObj.danceAnimation.ToString());
         }
     }
 }

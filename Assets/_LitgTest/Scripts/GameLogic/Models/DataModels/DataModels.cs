@@ -7,15 +7,10 @@ namespace _LitgTest.Scripts.GameLogic.Models.DataModels
     {
         PlayerData,
     }
-    
+
     [Serializable]
     public class PlayerData
     {
         public PlayerDances danceAnimation;
-
-        public PlayerData(PlayerDances danceAnimationData)
-        {
-            danceAnimation = danceAnimationData;
-        }
     }
 }

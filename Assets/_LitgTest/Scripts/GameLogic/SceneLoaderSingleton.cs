@@ -16,6 +16,7 @@ namespace _LitgTest.Scripts.GameLogic
             Instance = this;
         }
 
+        [Tooltip("Set the scene index that should be loaded after the current scene by the LoadNext() method")]
         [SerializeField] private int nextSceneIndex;
         
         public void LoadNext()
