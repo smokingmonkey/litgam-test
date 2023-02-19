@@ -3,7 +3,27 @@ guid: 046d78a8255fcbb46b0db9a3ff39d928
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission
+    second: {fileID: 2100000, guid: afa5760a4a72260469d4a5aadc246bf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground
+    second: {fileID: 2100000, guid: 817640ab62cb45e42ae720dd52266ef6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel
+    second: {fileID: 2100000, guid: b5ca8cda62a18a541b88d399b899baa1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tech_6
+    second: {fileID: 2100000, guid: 3c3a56227b338454a80e6a6d7ce9e095, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

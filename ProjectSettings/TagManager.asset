@@ -8,6 +8,12 @@ TagManager:
   - Enemy
   - Item
   - Floor
+  - Weapon1
+  - Weapon2
+  - Weapon3
+  - WeaponA
+  - WeaponB
+  - WeaponC
   layers:
   - Default
   - TransparentFX

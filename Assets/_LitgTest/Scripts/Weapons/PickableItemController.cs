@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using _Andy.Scripts.Models;
 using _Andy.Scripts.Weapons;
+using _LitgTest.Scripts.Audio;
 using UnityEngine;
 
-namespace _Andy.Scripts.Characters
+namespace _LitgTest.Scripts.Weapons
 {
-    public class ItemsController : MonoBehaviour
+    public class PickableItemController : MonoBehaviour
     {
         // [SerializeField] private ItemsUiController itemsUiController;
 
         [SerializeField] private List<ItemElement> itemElements;
+        [SerializeField] private AudioController audioController;
 
         private void OnEnable()
         {
@@ -24,23 +26,38 @@ namespace _Andy.Scripts.Characters
             }
 
             GetItem(itemType).gameObject.SetActive(true);
-        
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("SheriffKey"))
+            if (other.CompareTag("WeaponA"))
             {
                 Destroy(other.gameObject);
-                GetItem(ItemType.SpecialItemA).isPicked = true;
+                GetItem(ItemType.WeaponA).isPicked = true;
+                ToggleItems(ItemType.WeaponA);
                 
+                audioController.PlaySound();
             }
+
             if (other.CompareTag("WeaponB"))
             {
                 Destroy(other.gameObject);
                 GetItem(ItemType.WeaponB).isPicked = true;
+                ToggleItems(ItemType.WeaponB);
+                
+                audioController.PlaySound();
+
             }
-            
+
+            if (other.CompareTag("WeaponC"))
+            {
+                Destroy(other.gameObject);
+                GetItem(ItemType.WeaponC).isPicked = true;
+                ToggleItems(ItemType.WeaponC);
+                
+                audioController.PlaySound();
+
+            }
         }
 
         ItemElement GetItem(ItemType itemType)

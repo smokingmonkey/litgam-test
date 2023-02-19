@@ -4,6 +4,6 @@ namespace _Andy.Scripts.Models
     {
         WeaponA,
         WeaponB,
-        SpecialItemA
+        WeaponC
     }
 }

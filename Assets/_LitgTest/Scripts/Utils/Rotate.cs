@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _LitgTest.Scripts.Helpers
+namespace _LitgTest.Scripts.Utils
 {
     public class Rotate : MonoBehaviour
     {

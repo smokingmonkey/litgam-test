@@ -8,6 +8,8 @@ namespace _LitgTest.Scripts.Weapons
     {
         [SerializeField] private float acceleration;
         [SerializeField] GameObject referenceSphere;
+        [SerializeField] GameObject blur;
+        
         private float reloadingTimer;
         private bool CanAttack => reloadingTimer >= weaponData.reloadTime;
 
@@ -30,6 +32,7 @@ namespace _LitgTest.Scripts.Weapons
             if (CanAttack)
             {
                 referenceSphere.SetActive(false);
+                blur.SetActive(true);
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -45,6 +48,8 @@ namespace _LitgTest.Scripts.Weapons
         void Attack()
         {
             referenceSphere.SetActive(true);
+            blur.SetActive(false);
+
 
             int maxColliders = 50;
             Collider[] results = new Collider[maxColliders];
