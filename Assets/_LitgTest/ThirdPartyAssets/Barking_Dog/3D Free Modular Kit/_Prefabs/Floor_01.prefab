@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3349842}
   - component: {fileID: 2351466}
   - component: {fileID: 6586592}
-  m_Layer: 0
+  - component: {fileID: 3538488781818747659}
+  m_Layer: 9
   m_Name: Floor_01
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -97,6 +98,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0000029, y: 3.000002, z: 0.02}
   m_Center: {x: -1.5000005, y: -1.5000007, z: 0.00000013113421}
+--- !u!114 &3538488781818747659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61281e2a717e6ba4eb8b9f903deef678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetMaterialTime: 2
+  floor: {fileID: 2100000, guid: 34e48a3ce50b34c339d8fc61e309e31d, type: 2}
+  earthquake: {fileID: 2100000, guid: d805d893cc3762c4897567e3cd4db4cc, type: 2}
 --- !u!1 &119840
 GameObject:
   m_ObjectHideFlags: 0

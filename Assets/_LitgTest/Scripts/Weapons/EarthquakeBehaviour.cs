@@ -46,8 +46,7 @@ namespace _LitgTest.Scripts.Weapons
         {
             referenceSphere.SetActive(true);
 
-            Debug.Log("attac");
-            int maxColliders = 10;
+            int maxColliders = 50;
             Collider[] results = new Collider[maxColliders];
 
             var size = Physics.OverlapSphereNonAlloc(referenceSphere.transform.position, sphereRadius, results,
@@ -58,6 +57,11 @@ namespace _LitgTest.Scripts.Weapons
                 if (results[i].CompareTag("Enemy") || results[i].CompareTag("Item"))
                 {
                     ApplyForce(results[i].GetComponent<Rigidbody>());
+                }
+
+                if (results[i].CompareTag("Floor"))
+                {
+                    results[i].GetComponent<FloorEarthquakeBehaviour>().SetEarthquakeMaterial();
                 }
             }
         }
