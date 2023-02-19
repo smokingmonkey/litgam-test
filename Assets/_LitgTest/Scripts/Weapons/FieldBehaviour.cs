@@ -20,7 +20,7 @@ namespace _LitgTest.Scripts.Weapons
 
         private List<Rigidbody> bodies;
 
-        [SerializeField] float acceleration = -15;
+        [SerializeField] float acceleration;
 
         private Vector3 startPos;
 

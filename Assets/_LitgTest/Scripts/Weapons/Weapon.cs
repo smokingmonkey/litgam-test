@@ -10,16 +10,11 @@ namespace _LitgTest.Scripts.Weapons
         protected float cadenceCountdown;
         protected float reloadTimer;
 
-        public bool CanAttack => cadenceCountdown > 0f;
 
         void Start()
         {
             cadenceCountdown = weaponData.cadence;
             reloadTimer = weaponData.reloadTime;
         }
-
-        // public void Attack()
-        // {
-        // }
     }
 }

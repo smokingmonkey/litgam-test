@@ -32,7 +32,7 @@ namespace _LitgTest.Scripts.Weapons
             bulletRigidbody = GetComponent<Rigidbody>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (currentLifeTime >= lifeTime)
             {
