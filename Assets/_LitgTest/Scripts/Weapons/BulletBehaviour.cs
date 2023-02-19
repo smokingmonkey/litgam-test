@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _LitgTest.Scripts.Weapons
 {
@@ -17,18 +18,18 @@ namespace _LitgTest.Scripts.Weapons
 
         public bool isAvailable;
 
-        [SerializeField]private Rigidbody rigidbody;
+        [FormerlySerializedAs("rigidbody")] [SerializeField]private Rigidbody bulletRigidbody;
 
         private void OnEnable()
         {
             currentLifeTime = 0;
             isAvailable = false;
-            if (rigidbody) rigidbody.velocity = transform.forward * speed;
+            if (bulletRigidbody) bulletRigidbody.velocity = transform.forward * speed;
         }
 
         private void Start()
         {
-            rigidbody = GetComponent<Rigidbody>();
+            bulletRigidbody = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -51,7 +52,7 @@ namespace _LitgTest.Scripts.Weapons
 
         void ReturnBulletToPool()
         {
-            if (rigidbody) rigidbody.velocity = Vector3.zero;
+            if (bulletRigidbody) bulletRigidbody.velocity = Vector3.zero;
 
             gameObject.SetActive(false);
             isAvailable = true;
