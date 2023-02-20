@@ -18,7 +18,7 @@ namespace _LitgTest.Scripts.AI
 
         private void Start()
         {
-            bulletPrefab.Init(weaponData);
+            //bulletPrefab.Init(weaponData);
 
             charger = GetComponent<BulletSpawner>();
             charger.Init(bulletPrefab);

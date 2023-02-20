@@ -20,7 +20,7 @@ namespace _Andy.Scripts.Weapons
 
         [SerializeField] public AudioController audioController;
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             foreach (var bulletBehaviour in bulletsList)
             {

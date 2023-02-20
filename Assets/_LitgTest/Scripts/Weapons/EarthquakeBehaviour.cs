@@ -75,6 +75,7 @@ namespace _LitgTest.Scripts.Weapons
             }
         }
 
+        
 
         void ApplyForce(Rigidbody body)
         {
@@ -93,7 +94,7 @@ namespace _LitgTest.Scripts.Weapons
                 return;
             }
 
-            healthBehaviour.ReceiveDamage(weaponData.damage);
+            healthBehaviour.ReceiveDamage(damage);
         }
     }
 }

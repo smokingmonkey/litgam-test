@@ -4,7 +4,7 @@ namespace _LitgTest.Scripts.Weapons
 {
     public class FloorEarthquakeBehaviour : MonoBehaviour
     {
-        private Renderer renderer;
+        private Renderer objRenderer;
 
         [SerializeField] private float resetMaterialTime;
 
@@ -14,20 +14,20 @@ namespace _LitgTest.Scripts.Weapons
 
         void Start()
         {
-            renderer = GetComponent<Renderer>();
+            objRenderer = GetComponent<Renderer>();
         }
 
 
         public void SetEarthquakeMaterial()
         {
-            renderer.material = earthquake;
+            objRenderer.material = earthquake;
 
             Invoke(nameof(SetFloorMaterial), resetMaterialTime);
         }
 
         public void SetFloorMaterial()
         {
-            renderer.material = floor;
+            objRenderer.material = floor;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace _LitgTest.Scripts.Weapons
             {
                 var w = other.GetComponent<Weapon>();
 
-                ReceiveDamage(w.weaponData.damage);
+                ReceiveDamage(w.damage);
                 return;
             }
             if (!isEnemy && other.CompareTag("EnemyWeapon"))
@@ -42,7 +42,7 @@ namespace _LitgTest.Scripts.Weapons
 
                 var w = other.GetComponent<Weapon>();
 
-                ReceiveDamage(w.weaponData.damage);
+                ReceiveDamage(w.damage);
             }
         }
 
@@ -60,12 +60,15 @@ namespace _LitgTest.Scripts.Weapons
             {
                 if (!isEnemy)
                 {
-                   // gameOver.SetActive(true);
+                   gameOver.SetActive(true);
+                }
+                else
+                {
+                    Destroy(gameObject);
                 }
 
                 // Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
                 // Destroy(healthBar.gameObject);
-                Destroy(this.gameObject);
             }
             else
             {

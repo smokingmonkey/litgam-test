@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earthquake
   m_EditorClassIdentifier: 
   name: Earthquake
-  weaponType: 2
+  weaponType: 3
   damage: 30
   cadence: 20
   reloadTime: 5

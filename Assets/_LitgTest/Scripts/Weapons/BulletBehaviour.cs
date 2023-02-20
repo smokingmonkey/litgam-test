@@ -15,7 +15,6 @@ namespace _LitgTest.Scripts.Weapons
         [SerializeField] float lifeTime;
         private float currentLifeTime;
 
-        [SerializeField] private float damage;
 
         public bool isAvailable;
 
@@ -60,9 +59,9 @@ namespace _LitgTest.Scripts.Weapons
             HaveDie?.Invoke(this);
         }
 
-        public void Init(WeaponSO obj)
-        {
-            weaponData = obj;
-        }
+        // public void Init(WeaponSO obj)
+        // {
+        //     weaponData = obj;
+        // }
     }
 }

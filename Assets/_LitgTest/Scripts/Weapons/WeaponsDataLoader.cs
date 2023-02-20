@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using _LitgTest.Scripts.GameLogic.Models.GamePlayModels;
 using _LitgTest.Scripts.GameLogic.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _LitgTest.Scripts.Weapons
 {
     public class WeaponsDataLoader : MonoBehaviour
     {
         [SerializeField] private Weapon machineGun;
-        [SerializeField] private Weapon enemyMachineGun;
+        [SerializeField] private List<Weapon> enemiesMachineGun;
         [SerializeField] private Weapon earthQuake;
         [SerializeField] private Weapon field;
 
@@ -19,22 +20,25 @@ namespace _LitgTest.Scripts.Weapons
             {
                 if (weapon.weaponType.Equals(WeaponType.Bullets))
                 {
-                    machineGun.weaponData = weapon;
+                    machineGun.SetWeaponData(weapon);
                 }
 
                 if (weapon.weaponType.Equals(WeaponType.EnemyBullets))
                 {
-                    enemyMachineGun.weaponData = weapon;
+                    foreach (var enemy in enemiesMachineGun)
+                    {
+                        enemy.SetWeaponData(weapon);
+                    }
                 }
 
                 if (weapon.weaponType.Equals(WeaponType.ForceField))
                 {
-                    field.weaponData = weapon;
+                    field.SetWeaponData(weapon);
                 }
 
                 if (weapon.weaponType.Equals(WeaponType.DirectContact))
                 {
-                    earthQuake.weaponData = weapon;
+                    earthQuake.SetWeaponData(weapon);
                 }
             }
         }

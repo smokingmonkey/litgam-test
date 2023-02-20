@@ -11,8 +11,6 @@ namespace _LitgTest.Scripts.Weapons
         [SerializeField] float lifeTime;
         private float currentLifeTime;
 
-        [SerializeField] private float damage;
-
         [SerializeField] private float maxDistance;
 
         [SerializeField] private Transform parent;
@@ -35,7 +33,7 @@ namespace _LitgTest.Scripts.Weapons
             bodies = new List<Rigidbody>();
             startPos = transform.localPosition;
 
-            Init(weaponData.damage);
+            Init();
         }
 
         private void Update()
@@ -79,9 +77,8 @@ namespace _LitgTest.Scripts.Weapons
         }
 
 
-        public void Init(float weaponDataDamage)
+        public void Init()
         {
-            damage = weaponDataDamage;
             audioController = GetComponent<AudioController>();
         }
 
@@ -135,7 +132,7 @@ namespace _LitgTest.Scripts.Weapons
                 return;
             }
 
-            healthBehaviour.ReceiveDamage(weaponData.damage);
+            healthBehaviour.ReceiveDamage(damage);
         }
     }
 }

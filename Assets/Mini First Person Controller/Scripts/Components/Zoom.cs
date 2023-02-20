@@ -9,7 +9,7 @@ public class Zoom : MonoBehaviour
     [Range(0, 1)]
     public float currentZoom;
     public float sensitivity = 1;
-
+ 
 
     void Awake()
     {

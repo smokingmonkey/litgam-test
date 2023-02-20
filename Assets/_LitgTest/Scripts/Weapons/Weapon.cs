@@ -7,14 +7,17 @@ namespace _LitgTest.Scripts.Weapons
     {
         public WeaponSO weaponData;
 
-        protected float cadenceCountdown;
-        protected float reloadTimer;
+        public float cadenceCountdown;
+        public float reloadTimer;
+        public float damage;
 
-
-        void Start()
+       public void SetWeaponData(WeaponSO data)
         {
-            cadenceCountdown = weaponData.cadence;
-            reloadTimer = weaponData.reloadTime;
+            weaponData = data;
+
+            cadenceCountdown = data.cadence;
+            reloadTimer = data.reloadTime;
+            damage = data.damage;
         }
     }
 }
