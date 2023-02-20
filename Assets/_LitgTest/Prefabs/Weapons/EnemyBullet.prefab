@@ -99,7 +99,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.45749998, a: 0.36078432}
+      key0: {r: 1, g: 0.1073254, b: 0, a: 0.36078432}
       key1: {r: 1, g: 0.7024113, b: 0.3735294, a: 0.105882354}
       key2: {r: 1, g: 1, b: 1, a: 0.34509805}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -161,9 +161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 0}
+  cadenceCountdown: 0
+  reloadTimer: 0
+  damage: 1
   speed: 100
   lifeTime: 3
-  damage: 1
   isAvailable: 0
   bulletRigidbody: {fileID: 1698826508712523869}
 --- !u!54 &1698826508712523869
@@ -243,7 +245,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 798c05e4cfe4df743b9c44beeb43d887, type: 2}
+  - {fileID: 2100000, guid: 863eaac823cbd8e449ef08c50d469799, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

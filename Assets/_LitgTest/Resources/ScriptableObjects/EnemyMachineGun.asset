@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: EnemyMachineGun
   weaponType: 1
-  damage: 3
+  damage: 1
   cadence: 10
   reloadTime: 0

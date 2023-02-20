@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626741592466135310, guid: 4ed2b5fdcad02474c8c4d30475fe8ae0, type: 3}
+      propertyPath: m_Volume
+      value: 0.266
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3626741592466135306, guid: 4ed2b5fdcad02474c8c4d30475fe8ae0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ed2b5fdcad02474c8c4d30475fe8ae0, type: 3}
@@ -357,4 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 0}
+  cadenceCountdown: 0
+  reloadTimer: 0
+  damage: 0
   bulletPrefab: {fileID: 454442962189406750, guid: 546e349504e9c7944a36c3bfc80d26f1, type: 3}

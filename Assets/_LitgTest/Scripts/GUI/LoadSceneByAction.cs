@@ -8,29 +8,48 @@ namespace _LitgTest.Scripts.GUI
     {
         [SerializeField] private int sceneIndex;
 
-        protected override void OnEnable()
+        private bool isLoading;
+
+        private float loadingTime = 3f;
+
+        private float subscribeDelay = 5f;
+
+        protected override void Start()
         {
-            PointerDown += LoadByClick;
+            Invoke(nameof(Subscribe), subscribeDelay);
         }
-        
+
         protected override void OnDisable()
         {
             PointerDown -= LoadByClick;
         }
-        
+
         private void Update()
         {
-            if (Input.anyKey)
+            if (Input.anyKey && !isLoading)
             {
-                SceneLoaderSingleton.Instance.LoadNext();
+                isLoading = true;
+                Invoke(nameof(Load), loadingTime);
             }
         }
 
         private void LoadByClick()
         {
-            SceneLoaderSingleton.Instance.LoadNext();
+            if (!isLoading)
+            {
+                isLoading = true;
+                Invoke(nameof(Load), loadingTime);
+            }
         }
 
-       
+        void Subscribe()
+        {
+            PointerDown += LoadByClick;
+        }
+
+        void Load()
+        {
+            SceneLoaderSingleton.Instance.LoadNext();
+        }
     }
 }
