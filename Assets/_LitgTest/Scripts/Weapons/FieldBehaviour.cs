@@ -36,7 +36,6 @@ namespace _LitgTest.Scripts.Weapons
             startPos = transform.localPosition;
 
             Init(weaponData.damage);
-            
         }
 
         private void Update()
@@ -67,12 +66,15 @@ namespace _LitgTest.Scripts.Weapons
             }
 
             currentLifeTime += Time.deltaTime;
-            
+
             audioController.PlaySound();
 
             foreach (var item in bodies)
             {
-                Attract(item);
+                if (item)
+                {
+                    Attract(item);
+                }
             }
         }
 
@@ -105,6 +107,14 @@ namespace _LitgTest.Scripts.Weapons
             if (other.CompareTag("Enemy") || other.CompareTag("Item"))
             {
                 CaptureItem(other);
+                var health = other.GetComponent<HealthBehaviour>();
+
+                if (!health)
+                {
+                    return;
+                }
+
+                ApplyDamage(health);
             }
         }
 
@@ -116,6 +126,16 @@ namespace _LitgTest.Scripts.Weapons
             Vector3 gravityUp = (bodyTransform.position - transform.position).normalized;
 
             body.AddForce(gravityUp * acceleration);
+        }
+
+        void ApplyDamage(HealthBehaviour healthBehaviour)
+        {
+            if (!healthBehaviour)
+            {
+                return;
+            }
+
+            healthBehaviour.ReceiveDamage(weaponData.damage);
         }
     }
 }

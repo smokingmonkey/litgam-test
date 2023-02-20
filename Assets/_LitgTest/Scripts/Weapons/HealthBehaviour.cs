@@ -34,13 +34,11 @@ namespace _LitgTest.Scripts.Weapons
             {
                 var w = other.GetComponent<Weapon>();
 
-                Debug.Log("enemy");
                 ReceiveDamage(w.weaponData.damage);
                 return;
             }
             if (!isEnemy && other.CompareTag("EnemyWeapon"))
             {
-                Debug.Log("enemy");
 
                 var w = other.GetComponent<Weapon>();
 
@@ -50,7 +48,6 @@ namespace _LitgTest.Scripts.Weapons
 
         public void ReceiveDamage(float damage)
         {
-            Debug.Log("Receiving damage");
 
             if (isEnemy)
             {
@@ -63,7 +60,7 @@ namespace _LitgTest.Scripts.Weapons
             {
                 if (!isEnemy)
                 {
-                    gameOver.SetActive(true);
+                   // gameOver.SetActive(true);
                 }
 
                 // Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);

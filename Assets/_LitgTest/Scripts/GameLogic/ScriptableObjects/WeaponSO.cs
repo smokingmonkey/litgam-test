@@ -6,6 +6,7 @@ namespace _LitgTest.Scripts.GameLogic.ScriptableObjects
     [CreateAssetMenu(fileName = "newGun", menuName = "Create Gun")]
     public class WeaponSO : ScriptableObject
     {
+        public new string name;
         public WeaponType weaponType;
 
         public float damage;
