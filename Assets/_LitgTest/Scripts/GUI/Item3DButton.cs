@@ -1,23 +1,22 @@
-using System;
 using _LitgTest.Scripts.GameLogic.Models.GamePlayModels;
 using _LitgTest.Scripts.Weapons;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _LitgTest.Scripts.GUI
 {
-    [RequireComponent(typeof(Button))]
     public class Item3DButton : MonoBehaviour
     {
-        [SerializeField] private Color normalColor;
-        [SerializeField] private Color selectedColor;
-
         [SerializeField] private Material pickedMaterial;
+        [SerializeField] private Material selectedMaterial;
 
-        [SerializeField] private Renderer renderer;
+        [SerializeField] private Renderer elementRenderer;
 
         int id;
         public int ID => id;
+
+        private bool isPicked;
 
         public ItemType ThisItemType => thisItemType;
 
@@ -31,23 +30,31 @@ namespace _LitgTest.Scripts.GUI
 
         private void OnEnable()
         {
-            PickableItemController.ItemPicked += SetPickedColor;
+            PickableItemController.ItemPicked += SetMaterial;
         }
 
         private void OnDisable()
         {
-            PickableItemController.ItemPicked -= SetPickedColor;
+            PickableItemController.ItemPicked -= SetMaterial;
         }
 
-        private void SetPickedColor(ItemType obj)
+        private void SetMaterial(ItemType obj)
         {
-            renderer.material = pickedMaterial;
+            if (obj == thisItemType)
+            {
+                isPicked = true;
+                elementRenderer.material = selectedMaterial;
+            }
+            else if (isPicked)
+            {
+                elementRenderer.material = pickedMaterial;
+            }
         }
 
 
         public void ToggleSelectedColor(bool isSelected)
         {
-            elementButton.image.color = isSelected ? selectedColor : normalColor;
+            elementRenderer.material = isSelected ? selectedMaterial : pickedMaterial;
         }
     }
 }

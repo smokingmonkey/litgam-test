@@ -1,3 +1,4 @@
+using _LitgTest.Scripts.Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,8 @@ namespace _LitgTest.Scripts.Weapons
 
         [SerializeField] private LayerMask layerMask;
 
+        [SerializeField] private AudioController audioController;
+
         void Start()
         {
             reloadingTimer = weaponData.reloadTime;
@@ -33,6 +36,7 @@ namespace _LitgTest.Scripts.Weapons
             {
                 referenceSphere.SetActive(false);
                 blur.SetActive(true);
+                audioController.StopSound();
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -50,6 +54,7 @@ namespace _LitgTest.Scripts.Weapons
             referenceSphere.SetActive(true);
             blur.SetActive(false);
 
+            audioController.PlaySound();
 
             int maxColliders = 50;
             Collider[] results = new Collider[maxColliders];
