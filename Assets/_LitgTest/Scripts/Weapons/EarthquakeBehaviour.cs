@@ -1,7 +1,5 @@
 using _LitgTest.Scripts.Audio;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _LitgTest.Scripts.Weapons
 {
