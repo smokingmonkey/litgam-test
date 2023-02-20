@@ -1,4 +1,4 @@
-- # Life is the Game - Technical Test
+# Life is the Game - Technical Test
 - ## Unity 2021.3.18f1
 
 - ### [Download build](https://drive.google.com/file/d/1V70oYrpIuWEAqtyJ2i_R-qnf-DY7HJUk/view?usp=sharing)
