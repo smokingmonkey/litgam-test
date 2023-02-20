@@ -47,7 +47,7 @@ namespace _LitgTest.Scripts.Weapons
                 }
                 // Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
                 // Destroy(healthBar.gameObject);
-                // Destroy(this.gameObject);
+                Destroy(this.gameObject);
             }
             else
             {

@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 namespace _LitgTest.Scripts.GUI
 {
-    public class Item3DButton : MonoBehaviour
+    public class ItemSlot : MonoBehaviour
     {
         [SerializeField] private Material pickedMaterial;
         [SerializeField] private Material selectedMaterial;
-
         [SerializeField] private Renderer elementRenderer;
 
         int id;
@@ -21,12 +20,6 @@ namespace _LitgTest.Scripts.GUI
         public ItemType ThisItemType => thisItemType;
 
         [SerializeField] ItemType thisItemType;
-        public Button elementButton;
-
-        private void Awake()
-        {
-            elementButton = GetComponent<Button>();
-        }
 
         private void OnEnable()
         {

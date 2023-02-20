@@ -15,7 +15,7 @@ namespace _LitgTest.Scripts.GameLogic.Models.GamePlayModels
 
         void Start()
         {
-            bulletPrefab.Init(weaponData.damage);
+            bulletPrefab.Init(weaponData);
 
             charger = GetComponent<BulletSpawner>();
             charger.Init(bulletPrefab);

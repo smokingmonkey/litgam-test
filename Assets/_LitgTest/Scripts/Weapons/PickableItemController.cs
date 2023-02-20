@@ -8,24 +8,46 @@ namespace _LitgTest.Scripts.Weapons
 {
     public class PickableItemController : MonoBehaviour
     {
-        // [SerializeField] private ItemsUiController itemsUiController;
-
         public static event Action<ItemType> ItemPicked;
+        public static event Action<ItemType> ItemSelected;
 
         [SerializeField] private List<ItemElement> itemElements;
         [SerializeField] private AudioController audioController;
 
-        private void OnEnable()
+        private void Update()
         {
-            // itemsUiController.ItemValueChange += ToggleItems;
+            ToggleItemByInput();
+        }
+
+        void ToggleItemByInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                ToggleItems(ItemType.WeaponA);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                ToggleItems(ItemType.WeaponB);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                ToggleItems(ItemType.WeaponC);
+            }
         }
 
         void ToggleItems(ItemType itemType)
         {
+            if (!GetItem(itemType).isPicked) return;
+
+            ItemPicked?.Invoke(itemType);
+
             foreach (var itemElement in itemElements)
             {
                 itemElement.gameObject.SetActive(false);
             }
+
 
             GetItem(itemType).gameObject.SetActive(true);
         }

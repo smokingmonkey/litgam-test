@@ -1,11 +1,12 @@
 using System;
+using _LitgTest.Scripts.GameLogic.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace _LitgTest.Scripts.Weapons
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class BulletBehaviour : MonoBehaviour
+    public class BulletBehaviour : Weapon
     {
         public event Action<BulletBehaviour> HaveDie;
 
@@ -59,9 +60,9 @@ namespace _LitgTest.Scripts.Weapons
             HaveDie?.Invoke(this);
         }
 
-        public void Init(float weaponDataDamage)
+        public void Init(WeaponSO obj)
         {
-            damage = weaponDataDamage;
+            weaponData = obj;
         }
     }
 }
