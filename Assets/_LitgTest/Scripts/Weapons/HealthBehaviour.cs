@@ -1,4 +1,6 @@
 using _LitgTest.Scripts.AI;
+using _LitgTest.Scripts.GUI;
+using _LitgTest.Scripts.VFX;
 using UnityEngine;
 
 namespace _LitgTest.Scripts.Weapons
@@ -10,9 +12,7 @@ namespace _LitgTest.Scripts.Weapons
         [SerializeField] private float health;
         private float maxHealth;
 
-        // [SerializeField] private HealthBar healthBar;
-
-        [SerializeField] private Transform healthBarTarget;
+        [SerializeField] private HealthBar healthBar;
 
         [SerializeField] private GameObject gameOver;
 
@@ -20,12 +20,11 @@ namespace _LitgTest.Scripts.Weapons
 
         [SerializeField] private EnemyAiBehaviour enemyAiBehaviour;
 
-        // [SerializeField] private ExplosionController explosionControllerPrefab;
+        [SerializeField] private ExplosionController explosionControllerPrefab;
 
         private void Start()
         {
             maxHealth = health;
-            // healthBar.target = healthBarTarget;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -67,15 +66,12 @@ namespace _LitgTest.Scripts.Weapons
                     Destroy(gameObject);
                 }
 
-                // Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
-                // Destroy(healthBar.gameObject);
+                Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
             }
             else
             {
                 var normalizedLife = health / maxHealth;
-                // healthBar.SetHealthBarValue(normalizedLife);
-
-                // LifeValueChange?.Invoke(normalizedLife);
+                healthBar.SetHealthBarValue(normalizedLife);
             }
         }
     }
