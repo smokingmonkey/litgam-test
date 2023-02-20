@@ -14,6 +14,7 @@ TagManager:
   - WeaponA
   - WeaponB
   - WeaponC
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

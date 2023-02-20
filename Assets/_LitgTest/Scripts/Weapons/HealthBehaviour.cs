@@ -27,8 +27,18 @@ namespace _LitgTest.Scripts.Weapons
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Weapon"))
+            if (isEnemy && other.CompareTag("Weapon"))
             {
+                var w = other.GetComponent<Weapon>();
+
+                Debug.Log("enemy");
+                ReceiveDamage(w.weaponData.damage);
+                return;
+            }
+            if (!isEnemy && other.CompareTag("EnemyWeapon"))
+            {
+                Debug.Log("enemy");
+
                 var w = other.GetComponent<Weapon>();
 
                 ReceiveDamage(w.weaponData.damage);
@@ -45,6 +55,7 @@ namespace _LitgTest.Scripts.Weapons
                 {
                     gameOver.SetActive(true);
                 }
+
                 // Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
                 // Destroy(healthBar.gameObject);
                 Destroy(this.gameObject);

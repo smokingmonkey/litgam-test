@@ -9,8 +9,6 @@ namespace _LitgTest.Scripts.Weapons
     public class PickableItemController : MonoBehaviour
     {
         public static event Action<ItemType> ItemPicked;
-        public static event Action<ItemType> ItemSelected;
-
         [SerializeField] private List<ItemElement> itemElements;
         [SerializeField] private AudioController audioController;
 
