@@ -10,7 +10,7 @@ namespace _LitgTest.Scripts.Weapons
         [SerializeField] private float acceleration;
         [SerializeField] GameObject referenceSphere;
         [SerializeField] GameObject blur;
-        
+
         private float reloadingTimer;
         private bool CanAttack => reloadingTimer >= weaponData.reloadTime;
 
@@ -67,6 +67,7 @@ namespace _LitgTest.Scripts.Weapons
                 if (results[i].CompareTag("Enemy") || results[i].CompareTag("Item"))
                 {
                     ApplyForce(results[i].GetComponent<Rigidbody>());
+                    ApplyDamage(results[i].GetComponent<HealthBehaviour>());
                 }
 
                 if (results[i].CompareTag("Floor"))
@@ -79,7 +80,22 @@ namespace _LitgTest.Scripts.Weapons
 
         void ApplyForce(Rigidbody body)
         {
+            if (!body)
+            {
+                return;
+            }
+
             body.AddForce(Vector3.up * acceleration, ForceMode.Impulse);
+        }
+
+        void ApplyDamage(HealthBehaviour healthBehaviour)
+        {
+            if (!healthBehaviour)
+            {
+                return;
+            }
+
+            healthBehaviour.ReceiveDamage(weaponData.damage);
         }
     }
 }

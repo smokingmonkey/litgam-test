@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace _LitgTest.Scripts.AI
 {
@@ -8,6 +10,8 @@ namespace _LitgTest.Scripts.AI
         public NavMeshAgent agent;
 
         private Transform player;
+
+        [SerializeField] private bool canAct;
 
 
         [SerializeField] private LayerMask isGround, isPlayer;
@@ -27,37 +31,64 @@ namespace _LitgTest.Scripts.AI
         [SerializeField] float sightRange, attackRange;
         [SerializeField] bool playerIsInSightRange, playerIsInAttackRange;
 
+        public bool CanAct
+        {
+            get => canAct;
+            set => canAct = value;
+        }
+
+        private float stonedTimer;
+        [SerializeField] private float stonedMaxTime;
+
 
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
+        private void Start()
+        {
+            CanAct = true;
+            stonedTimer = stonedMaxTime;
         }
 
         private void Update()
         {
-            playerIsInSightRange = Physics.CheckSphere(transform.position, sightRange, isPlayer);
-            playerIsInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
-
-            if (!playerIsInSightRange && !playerIsInAttackRange)
+            if (CanAct)
             {
-                Patrolling();
+                playerIsInSightRange = Physics.CheckSphere(transform.position, sightRange, isPlayer);
+                playerIsInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
+
+                if (!playerIsInSightRange && !playerIsInAttackRange)
+                {
+                    Patrolling();
+                }
+
+                if (playerIsInSightRange && !playerIsInAttackRange)
+                {
+                    ChasePlayer();
+                }
+
+                if (playerIsInSightRange && playerIsInAttackRange)
+                {
+                    AttackPlayer();
+                }
+
+                if (!playerIsInAttackRange)
+                {
+                    attackComponent.DisableShoot();
+                }
             }
 
-            if (playerIsInSightRange && !playerIsInAttackRange)
+            if (!canAct && stonedTimer > 0)
             {
-                ChasePlayer();
+                stonedTimer -= Time.deltaTime;
             }
-
-            if (playerIsInSightRange && playerIsInAttackRange)
+            else if (!canAct && stonedTimer <= 0)
             {
-                AttackPlayer();
-            }
-
-            if (!playerIsInAttackRange)
-            {
-                attackComponent.DisableShoot();
+                canAct = true;
+                stonedTimer = stonedMaxTime;
             }
         }
 
@@ -112,6 +143,7 @@ namespace _LitgTest.Scripts.AI
         {
             alreadyAttacked = false;
         }
+
 
         private void OnDrawGizmosSelected()
         {

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ForceField
   m_EditorClassIdentifier: 
   weaponType: 1
-  damage: 5
+  damage: 10
   cadence: 10
-  recoveryTime: 10
+  reloadTime: 0

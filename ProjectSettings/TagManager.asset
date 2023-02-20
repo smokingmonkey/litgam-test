@@ -15,6 +15,7 @@ TagManager:
   - WeaponB
   - WeaponC
   - EnemyWeapon
+  - Field
   layers:
   - Default
   - TransparentFX

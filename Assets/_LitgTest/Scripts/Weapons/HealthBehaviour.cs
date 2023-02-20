@@ -1,3 +1,4 @@
+using _LitgTest.Scripts.AI;
 using UnityEngine;
 
 namespace _LitgTest.Scripts.Weapons
@@ -16,6 +17,8 @@ namespace _LitgTest.Scripts.Weapons
         [SerializeField] private GameObject gameOver;
 
         [SerializeField] bool isEnemy;
+
+        [SerializeField] private EnemyAiBehaviour enemyAiBehaviour;
 
         // [SerializeField] private ExplosionController explosionControllerPrefab;
 
@@ -45,8 +48,15 @@ namespace _LitgTest.Scripts.Weapons
             }
         }
 
-        void ReceiveDamage(float damage)
+        public void ReceiveDamage(float damage)
         {
+            Debug.Log("Receiving damage");
+
+            if (isEnemy)
+            {
+                enemyAiBehaviour.CanAct = false;
+            }
+            
             health -= damage;
 
             if (health <= 0f)
