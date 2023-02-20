@@ -180,6 +180,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1365575195}
     m_Modifications:
+    - target: {fileID: 9610994, guid: c5398ed37f2822d45988df6e03961f8e, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9610999, guid: c5398ed37f2822d45988df6e03961f8e, type: 3}
       propertyPath: m_Pitch
       value: 1.44
@@ -18360,7 +18364,7 @@ PrefabInstance:
     - target: {fileID: 2047672779240536830, guid: a4777641f47ca86479415401179e5496, type: 3}
       propertyPath: weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: 94984b9a3d73e4e42a31f67556338ad4, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3626741592466135307, guid: a4777641f47ca86479415401179e5496, type: 3}
       propertyPath: m_Name
       value: FieldGun
@@ -22971,6 +22975,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 79348568}
     m_Modifications:
+    - target: {fileID: 3626741592466135306, guid: 7c89c8ca038a5a841832fbfef4aa3dc1, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3626741592466135307, guid: 7c89c8ca038a5a841832fbfef4aa3dc1, type: 3}
       propertyPath: m_Name
       value: MachineGun
@@ -23158,6 +23166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9051027876721840875}
     m_Modifications:
+    - target: {fileID: 5206771071368231074, guid: b15888f3c467dc342bcdc38c452ba7dc, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8625848644700809886, guid: b15888f3c467dc342bcdc38c452ba7dc, type: 3}
       propertyPath: m_RootOrder
       value: 0
