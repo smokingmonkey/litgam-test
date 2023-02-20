@@ -1,3 +1,4 @@
+using System;
 using _LitgTest.Scripts.AI;
 using _LitgTest.Scripts.GUI;
 using _LitgTest.Scripts.VFX;
@@ -7,7 +8,7 @@ namespace _LitgTest.Scripts.Weapons
 {
     public class HealthBehaviour : MonoBehaviour
     {
-        // public event Action<float> LifeValueChange;
+        public static event Action EnemyDied;
 
         [SerializeField] private float health;
         private float maxHealth;
@@ -36,9 +37,9 @@ namespace _LitgTest.Scripts.Weapons
                 ReceiveDamage(w.damage);
                 return;
             }
+
             if (!isEnemy && other.CompareTag("EnemyWeapon"))
             {
-
                 var w = other.GetComponent<Weapon>();
 
                 ReceiveDamage(w.damage);
@@ -47,23 +48,23 @@ namespace _LitgTest.Scripts.Weapons
 
         public void ReceiveDamage(float damage)
         {
-
             if (isEnemy)
             {
                 enemyAiBehaviour.CanAct = false;
             }
-            
+
             health -= damage;
 
             if (health <= 0f)
             {
                 if (!isEnemy)
                 {
-                   gameOver.SetActive(true);
+                    gameOver.SetActive(true);
                 }
                 else
                 {
                     Destroy(gameObject);
+                    EnemyDied?.Invoke();
                 }
 
                 Instantiate(explosionControllerPrefab, transform.position, Quaternion.identity);
