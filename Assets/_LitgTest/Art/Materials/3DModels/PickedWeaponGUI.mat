@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plasma (1)
+  m_Name: PickedWeaponGUI
   m_Shader: {fileID: 4800000, guid: 19e79e6fdce5d29418196afe8a2347a0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -36,6 +36,6 @@ Material:
     m_Floats:
     - _Cull: 2
     m_Colors:
-    - _Color: {r: 118.035385, g: 1.2359726, b: 0, a: 1}
+    - _Color: {r: 157.5865, g: 0, b: 94.64446, a: 1}
     - _MovementDirection: {r: 0, g: -0.1, b: 0, a: 1}
   m_BuildTextureStacks: []

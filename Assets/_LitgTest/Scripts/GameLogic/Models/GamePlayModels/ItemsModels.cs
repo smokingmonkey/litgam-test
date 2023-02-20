@@ -1,4 +1,4 @@
-namespace _Andy.Scripts.Models
+namespace _LitgTest.Scripts.GameLogic.Models.GamePlayModels
 {
     public enum ItemType
     {

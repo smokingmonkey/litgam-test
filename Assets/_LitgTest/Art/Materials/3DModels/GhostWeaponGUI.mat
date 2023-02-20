@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plasma (2)
+  m_Name: GhostWeaponGUI
   m_Shader: {fileID: 4800000, guid: 19e79e6fdce5d29418196afe8a2347a0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 39a00f3a4d887cc448b5d165b19938eb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1a41c3e209ba51c4fbb25b4d4613c183, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -36,6 +36,6 @@ Material:
     m_Floats:
     - _Cull: 2
     m_Colors:
-    - _Color: {r: 38.937145, g: 1.275018, b: 0, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _MovementDirection: {r: 0, g: -0.1, b: 0, a: 1}
   m_BuildTextureStacks: []

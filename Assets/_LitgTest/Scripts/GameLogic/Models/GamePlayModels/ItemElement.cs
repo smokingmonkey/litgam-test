@@ -1,7 +1,6 @@
-using _Andy.Scripts.Models;
 using UnityEngine;
 
-namespace _Andy.Scripts.Weapons
+namespace _LitgTest.Scripts.GameLogic.Models.GamePlayModels
 {
     public class ItemElement : MonoBehaviour
     {
